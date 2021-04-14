@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../../../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../../../css/bubble.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../../../highligth//styles/default.css">
+    <script src="../../../highligth/highlight.pack.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/web/web.html">Dev web</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/algo.html">Algorythmes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/cicd/cicd.html">CI/CD</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Les services</h1>
+                        <h2 class="subheading">Encore plus cool que le data binding</h2>
+                        <span class="meta">Loïc Rondel
+                            ,
+                            avril 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb" style="background-color: white;">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="/pages/web/web.html">Web</a></li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="/pages/web/angular.html">Angular</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">services</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <h2 class="section-heading">Concept</h2>
+                    <p>Un service angular est une classe fournissant des methodes, des variables, ou encore des
+                        constantes accessibles depuis
+                        n'importe quel point de l'application.
+                        Les services sont des objects Injectables donc directement liés au fonctionement d'injection de
+                        dépendences dans Angular.
+                    </p>
+
+                    <h2 class="section-heading">Code de base</h2>
+
+                    <p>Pour cette démonstration nous allons utiliser un service pour requeter une API Rest, traiter la
+                        réponse dans un composent angular et inserer dynamiquement les données dans la vue</p>
+
+                    <p>Commencons par générer un projet Angular avec les commandes suivantes<br>
+                        <code>ng new testService</code><br>
+                        <code>cd testService</code><br>
+                        <code>ng serve</code><br>
+                        <span class="caption text-muted">Si tu ne disposes pas de la commande ng, suis la documention <a
+                                href="">ici</a></span>
+                    </p>
+                    <p>Ensuite on va pas se prendre la tete et utiliser la commande <code>ng</code> pour generer un
+                        nouveau service<br>
+                        <code>ng generate service services/myapi</code><br>
+                        Ce qui nous creer un fichier <span class="badge badge-secondary">myapi.service.ts</span> et son
+                        test
+                        <span class="badge badge-secondary">myapi.service.spec.ts</span> dans le dossier
+                        <src class="badge badge-secondary">src/app/services/</span>
+                    </p>
+
+                    <p>Bien ! regardon un peu ce fichier :
+                    <pre><code style="javascript">
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root',
+})
+export class MyAppService {
+                            
+    constructor() { }
+                            
+}
+                        </code></pre>
+                    Le plus important ici est l'annotation <span class="badge badge-secondary">@Injectable</span> qui
+                    indique au framework
+                    que cette classe est...injectable ! s'on fort les gars chez Google. Elle pouras donc etre utilisée
+                    n'importe ou grace a l'injection de dependences.<br>
+                    Nous allons ajouter une methode bidon qui retourne juste une chaine de caratère pour un premier
+                    exemple.
+                    <pre><code class="javascript">
+...
+constructor() { }
+
+sayHello(): string {
+    return "posé ou quoi frêre ?"
+}
+</code></pre>
+                    </p>
+
+                    <h2 class="section-heading">Utiliser le service</h2>
+
+                    <p>Bon il est temps d'injecter ce service dans un composant pour pouvoir l'utiliser.<br>
+                        Pour ça rien de plus simple, il suffi de passer un object de type <span
+                            class="badge badge-secondary">MyAppService</span>
+                        dans le constructeur du composant. L'injection de dépendence fait le reste et l'objet est
+                        directement utilisable.<br>
+                        Là on va encore une fois pas se prendre la tete et utiliser le composant qui a été generer avec
+                        le projet et qui gere la vue
+                        principale: <span class="badge badge-secondary">app.component.ts</span>
+                    </p>
+                    <pre><code class="javascript">
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'app';
+
+  message: string;
+
+  constructor(private myappSerive: MyAppService) {
+    this.message = myappService.sayHello();
+    console.log(this.message);
+  }
+}
+                    </code></pre>
+                    <p>Et voila ! la variable <span class="badge badge-secondary">message</span> est valorisée grâce a
+                        la methode
+                        <span class="badge badge-secondary">sayHello()</span> du service.<br>
+                        C'est cool mais là ça sert a rien à part diffuser la meme chaine de caractère dans plusieurs
+                        composants, ont va faire un truc vraiment util
+                        avec ce service, appeler une api !
+                    </p>
+
+                    <h2 class="section-heading">Faisons un truc util</h2>
+
+                    <p>Voila l'idée: le service <span class="badge badge-secondary">MyappService</span> va etre en
+                        charge de requeter l'api
+                        et le composant <span class="badge badge-secondary">AppComponent</span> va l'utiliser pour
+                        organiser et presenter les donnée.
+                        D'abord nous allons regarder la donnée a l'aquelle on s'attend. Direction api.gouv.fr, comme je
+                        suis nul en geographie on va reviser le découpage administratif.
+                    </p>
+                    <p><a href="https://api.gouv.fr/documentation/api-geo">https://api.gouv.fr/documentation/api-geo</a>
+                        : pour la documentation et le swagger
+                        <br>
+                        Où l'on découvre que l'api se planque derrriere <a
+                            href="https://geo.api.gouv.fr/">https://geo.api.gouv.fr/</a>
+                        <br>
+                        On vas utiliser les endoints <span class="badge badge-secondary">/region</span> ,
+                        <span class="badge badge-secondary">/departement</span> et
+                        <span class="badge badge-secondary">/commune</span> pour creer une arboréscence de ce découpage
+                        admnistratif.
+                    </p>
+                    <p>Commençons par le module <span class="badge badge-secondary">app.module.ts</span></p>
+                    <div class="box1 sb5">Quoi ?! pouquoi ?</div>
+                        <p>Nous allons utiliser l'utilitaire <span
+                            class="badge badge-secondary">HttpClient</span> qui vient de
+                        <span class="badge badge-secondary">HttpModule</span>, il faut donc importer le module :
+                    </p>
+                    <pre><code class="javascript">
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+    declarations: [
+    AppComponent
+    ],
+    imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+                    </code></pre>
+                    <p>Puis on inject HttpClient dans le service via le constructeur et on code les methodes d'appels a l'API : </p>
+                    <span class="caption text-muted">Au passage, remarques que HttpClient est injecter comme notre service dans le composant...
+                        c'est également un service !</span>
+                    <pre><code class="javascript">
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+})
+export class MyapiService {
+
+    baseUrl = "/api";
+
+    constructor(private http: HttpClient) { }
+
+    async getRegions() {
+    let data = await this.http.get<any>(this.baseUrl + "/regions").toPromise();
+    return data;
+    }
+
+    async getDepartementsByRegion(regionCode) {
+    let data = await this.http.get<any>(this.baseUrl + `/regions/${regionCode}/departements`).toPromise();
+    return data;
+    }
+
+    async getCommunesByDepartements(departementCode) {
+    let data = await this.http.get<any>(this.baseUrl + `/departements/${departementCode}/communes`).toPromise();
+    return data;
+    }
+
+    sayHello(): string {
+    return "Bien ou quoi ?"
+    }
+
+}
+                    </code></pre>
+                    <p>Les différentes methodes get* font appel a l'API et recoivent l'information fomrtée en JSON</p>
+                    <div class="box1 sb5">C'est quoi <span class="badge badge-secondary">basseUrl = /api</span> ?</div>
+                    <p>Ca vient du fonctionement des echanges entre aplication de domaines différents, les CORS, c'est pas 
+                        le propos du billet alors ajoutes juste le fichier 
+                        <span class="badge badge-secondary">proxy.conf.json</span> dans <span class="badge badge-secondary">/src</span> 
+                        puis tu le charges en ajoutant un flag a la commande serve <span class="badge badge-secondary">ng serve --proxy-config src/proxy.conf.json</span>
+                        <br>
+                        Il va permettre a Angular de proxyfier les requetes et donc d'avoir un comportement de serveur a seveur pour contourners les CORS policies.
+                        Dans un environements de production tu n'utiliseras pas ça mais tu t'appuieras sur un serveur http comme NginX ou Appache pour manipuler les requetes vers l'exterieur
+                    </p>
+                    <pre><code class="json">
+{
+    "/api": {
+        "target": "https://geo.api.gouv.fr",
+        "secure": false,
+        "pathRewrite": {
+        "^/api": ""
+        },
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}                          
+                    </code></pre>
+                    <p>Bon on reprend , au tour du composent de receptioner et interpreter la donné. 
+                        <br>
+
+                    </p>
+                    <pre><code class="javascript">
+
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../../../js/clean-blog.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>
